@@ -25,7 +25,7 @@ double Div(double a, double b) {
 }
 
 
-int main()
+void main()
 {
     
     /*HANDLE hconsole = GetStdHandle(STD_OUTPUT_HANDLE);
