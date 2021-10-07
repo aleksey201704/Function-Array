@@ -8,7 +8,7 @@ void FillRand(int arr[],const unsigned int n);
 void Print(int arr[], const unsigned int n);
 void ReversPrint(int arr[], const unsigned int n);
 int Sum(int arr[], const unsigned int n);
-int Avg(int arr[], const unsigned int n);
+void Avg(int arr[], const unsigned int n);
 
 
 
@@ -24,7 +24,7 @@ void  main()
 	ReversPrint(arr, n);
 	cout << endl << " Сумма = " << Sum(arr, n);
 
-	//Avg(arr, n);
+	Avg(arr, n);
 	return;
 
 }
@@ -64,12 +64,7 @@ int Sum(int arr[], const unsigned int n)
 	return s;
 }
 
-int Avg(int arr[], const unsigned int n)
+void Avg(int arr[], const unsigned int n)
 {
-	int s=0;
-	for (int i = 0; i < n; i++)
-	{
-		s = s + arr[i];
-	}
-	cout << endl << "Среднне число = " << (double)s/n;
+	cout << endl << "Среднне число = " << (double) Sum (arr,n) / n;
 }
