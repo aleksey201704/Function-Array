@@ -9,7 +9,10 @@ void Print(int arr[], const unsigned int n);
 void ReversPrint(int arr[], const unsigned int n);
 int Sum(int arr[], const unsigned int n);
 void Avg(int arr[], const unsigned int n);
-
+void minValueIn(int arr[], const unsigned int n);
+void maxValueIn(int arr[], const unsigned int n);
+void Sort (int arr[], const unsigned int n);
+void shiftLeft (int arr[], const unsigned int n, int Quantity);
 
 
 
@@ -18,15 +21,88 @@ void  main()
 	setlocale(LC_ALL, "Russian");
 	const unsigned int n = 5;
 	int arr[n];
+	int Quantity=0;
 	
 	FillRand(arr, n);
 	Print(arr, n);
 	ReversPrint(arr, n);
 	cout << endl << " Сумма = " << Sum(arr, n);
-
 	Avg(arr, n);
+	minValueIn(arr, n);
+	maxValueIn(arr, n);
+	Sort(arr, n);
+	shiftLeft(arr, n, Quantity);
 	return;
 
+}
+
+void shiftLeft(int arr[], const unsigned int n, int Quantity)
+{
+	cout << endl;
+	cout << "Введите на колчество сдвига влево = "; cin >> Quantity;
+	//int arrLeft[5];
+	int arrSort[5];
+	int k = Quantity-1;
+	for (int i = 0; i < Quantity-1; i++)
+	{
+		arrSort[i] = arr[k];
+		k;
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		cout << arr[i] << "\t";
+	}
+}
+
+void Sort(int arr[], const unsigned int n)
+{
+	int t=0;
+	for (int i = 1; i < n; i++)
+	{
+		for (int j = 0; j < n-1; j++)
+		{
+			if (arr[j]>arr[j+1])
+			{
+				t = arr[j];
+				arr[j] = arr[j+1];
+				arr[j+1] = t;
+			}
+		}
+	}
+	cout << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cout << arr[i] << "\t";
+	}
+}
+
+void maxValueIn(int arr[], const unsigned int n)
+{
+	int max = arr[0];
+	for (int i = 1; i < n; i++)
+	{
+		if (max < arr[i])
+		{
+			max = arr[i];
+		}
+	}
+
+	cout << endl << "Максимальное значение = " << max;
+}
+
+void minValueIn(int arr[], const unsigned int n)
+{
+	int min = arr[0];
+	for (int i = 1; i < n; i++)
+	{
+		if (min > arr[i])
+		{
+			min = arr[i];
+		}
+	}
+
+	cout << endl << "Минимальное значение = " << min;
 }
 
 void FillRand(int arr[], const unsigned int n) 
@@ -68,3 +144,4 @@ void Avg(int arr[], const unsigned int n)
 {
 	cout << endl << "Среднне число = " << (double) Sum (arr,n) / n;
 }
+
